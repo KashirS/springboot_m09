@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Book</title>
+</head>
+<body>
+<h1>New Book</h1>
+<form class="input-group" method="post" action="#" th:action="${bookForm.id!=0} ?@{/book/edit/submit} : @{/book/new/submit}" th:object="${bookForm}">
+  <h1 th:text="${bookForm.id!=0}?'Edit book?': 'New Book'">this is book</h1>
+  <label>ID </label><br/><input type="text" id="id" placeholder="1" th:field="*{id}" th:attrappend="readonly=${bookForm.id!=0}?'readonly':null"><br/>
+  <label>Name </label><br/><input type="text" id="name" placeholder="Name" th:field="*{name}"><br/>
+  <label>Description </label><br/><input type="text" id="description" placeholder="Nom" th:field="*{description}"><br/>
+  <label>ISBN </label><br/><input type="text" id="isbn" placeholder="isbn123456789" th:field="*{isbn}"><br/>
+  <button class="btn-default" type="submit">Enviar</button>
+</form>
+<form th:action="@{/logout}" method="post">
+  <input type="submit" value="Sortir (Sign Out)"/>
+</form>
+</body>
+</html>
